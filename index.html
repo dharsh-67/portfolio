@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dharshini R | Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff7fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(90deg, #d63384, #8e44ad);
+            color: white;
+            padding: 18px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffe0f0;
+        }
+
+        section {
+            padding: 65px 8%;
+            scroll-margin-top: 80px;
+        }
+
+        .home {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #ffe0f0, #eee0ff);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 18px #bd75b5;
+            margin-bottom: 20px;
+        }
+
+        .home h1 {
+            color: #8e44ad;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .home h2 {
+            color: #d63384;
+            margin-bottom: 12px;
+        }
+
+        .home p {
+            max-width: 650px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: #d63384;
+            color: white;
+        }
+
+        .secondary-btn {
+            background: #8e44ad;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.85;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #8e44ad;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card,
+        .skill-card,
+        .project-card,
+        .contact-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px #ead3e8;
+            transition: 0.3s;
+        }
+
+        .info-card:hover,
+        .skill-card:hover,
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3,
+        .skill-card h3,
+        .project-card h3 {
+            color: #d63384;
+            margin-bottom: 12px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 18px;
+            text-align: center;
+        }
+
+        .skill-card {
+            color: #8e44ad;
+            font-weight: bold;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .project-card p {
+            margin-bottom: 18px;
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .project-links .btn {
+            font-size: 14px;
+            padding: 9px 16px;
+        }
+
+        .career {
+            text-align: center;
+            background: linear-gradient(135deg, #ffe0f0, #eee0ff);
+        }
+
+        .career p {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            font-size: 28px;
+        }
+
+        .contact-item h3 {
+            color: #d63384;
+        }
+
+        .contact-item a {
+            color: #8e44ad;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            color: white;
+            background: linear-gradient(90deg, #d63384, #8e44ad);
+        }
+
+        @media (max-width: 650px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            section {
+                padding: 45px 5%;
+            }
+
+            .home h1 {
+                font-size: 30px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h2 class="logo">Dharshini R</h2>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#career">Career Goal</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+
+        <img src="C:\Users\DHARSHINI\Downloads\portfolio.png"
+             alt="Dharshini's Profile Photo"
+             class="profile-img">
+
+        <h1>Hello, I'm Dharshini R</h1>
+        <h2>BCA Student | Aspiring Full-Stack Developer</h2>
+
+        <p>
+            Welcome to my personal portfolio! I am a dedicated and
+            enthusiastic student who enjoys learning new technologies,
+            developing applications, and improving my programming skills.
+        </p>
+
+        <div class="buttons">
+            <a href="#about" class="btn primary-btn">
+                About Me
+            </a>
+
+            <a href="https://github.com/dharsh-67"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn secondary-btn">
+                Visit My GitHub ↗
+            </a>
+        </div>
+    </section>
+
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-content">
+            <p>
+                I am Dharshini R, currently pursuing my Bachelor of
+                Computer Applications (BCA). I am interested in
+                programming, web development, and software development.
+                I believe in continuous learning and working hard to
+                achieve my goals. My aim is to become a skilled
+                full-stack developer and build useful applications.
+            </p>
+        </div>
+    </section>
+
+    
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Degree</h3>
+                <p><strong>Bachelor of Computer Applications</strong></p>
+                <p>Currently pursuing BCA</p>
+                <p>SVRFGC</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Pre-University</h3>
+                <p><strong>Science Stream</strong></p>
+                <p>Percentage: 94%</p>
+            </div>
+
+            <div class="info-card">
+                <h3>School Education</h3>
+                <p><strong>SVET</strong></p>
+                <p>Percentage: 99.04%</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills-grid">
+            <div class="skill-card">HTML</div>
+            <div class="skill-card">CSS</div>
+            <div class="skill-card">Python</div>
+            <div class="skill-card">Flask</div>
+            <div class="skill-card">SQLite</div>
+            <div class="skill-card">JavaScript</div>
+            <div class="skill-card">Git & GitHub</div>
+            <div class="skill-card">Problem Solving</div>
+        </div>
+    </section>
+
+    
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="projects-grid">
+
+            <!-- Online Bakery Management System -->
+            <div class="project-card">
+                <h3>Online Bakery Management System</h3>
+
+                <p>
+                    A Python and Flask-based project for managing bakery
+                    products and customer orders. It uses SQLite for
+                    storing and managing data.
+                </p>
+
+                <div class="project-links">
+                    <a href="https://github.com/dharsh-67/BD-code/blob/ed692a8edc4ae046cef9260f64a96b6b915dc44e/order.py"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn primary-btn">
+                        View Source ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Student Management System</h3>
+
+                <p>
+                    A Python-based project for managing student details
+                    and maintaining student records.
+                </p>
+
+                <div class="project-links">
+                    <a href="https://github.com/dharsh-67/student/blob/0ad4eec8818a092c602eabb8befd90f582470c63/student.py"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn primary-btn">
+                        View Source ↗
+                    </a>
+                </div>
+            </div>
+
+            
+            <div class="project-card">
+                <h3>Personal Portfolio Website</h3>
+
+                <p>
+                    A responsive personal website created using HTML
+                    and CSS to showcase my education, skills, projects,
+                    and career goals.
+                </p>
+
+                <div class="project-links">
+                    <a href="https://github.com/dharsh-67/updated-portfolio/blob/9bfb5ca64124d2d8faf30ad6f47f10ebac1dfe5f/updated.html"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn primary-btn">
+                        View Source ↗
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+    <section class="career" id="career">
+        <h2 class="section-title">My Career Goal</h2>
+
+        <p>
+            My career goal is to become a professional full-stack
+            developer. I want to improve my knowledge of front-end
+            and back-end technologies, develop real-world projects,
+            and create user-friendly applications. I am committed to
+            learning continuously and building a successful career
+            in the software industry.
+        </p>
+    </section>
+
+    
+    <section id="contact">
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact-grid">
+
+            <div class="contact-item">
+                <span class="contact-icon">💻</span>
+
+                <div>
+                    <h3>GitHub Profile</h3>
+                    <a href="https://github.com/dharsh-67"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Visit My GitHub ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-icon">📂</span>
+
+                <div>
+                    <h3>My Projects</h3>
+                    <a href="#projects">
+                        Explore My Projects
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-icon">🎓</span>
+
+                <div>
+                    <h3>Education</h3>
+                    <p>Bachelor of Computer Applications</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+    <footer>
+        <p>
+            © 2026 Dharshini R | Personal Portfolio
+        </p>
+        <p>Designed with 💗 using HTML and CSS</p>
+    </footer>
+
+</body>
+</html>
